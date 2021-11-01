@@ -7,9 +7,15 @@ const ingredients = [
   'Condiments',
 ];
 
-const ulEl = document.querySelector('#ingredients');
+const  listForAddingItems = document.querySelector(`#ingredients`);
 
-const list = ingredients.reduce((str, item) => str + `<li>${item}</li>`, '');
+const addListItems = (array) => {
+    const  listArray  = array.map(item  => {
+        const  listItem  = document.createElement('li');
+        listItem.textContent = item;
+        return  listItem;
+    } )
+    listForAddingItems.append(...listArray);
+}
 
-ulEl.innerHTML = list;
-
+addListItems(ingredients);
